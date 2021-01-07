@@ -2,11 +2,19 @@
     {
     "Job0": {
         "ID": 1,
-        "Name": "job 1"
+        "Name": "job 1",
+        "Location": "point 1",
+        "DateStart": "",
+        "DateEnd": "",
+        "Status": ""
     },
     "Job1": {
         "ID": 2,
-        "Name": "job 2"
+        "Name": "job 2",
+        "Location": "point 2",
+        "DateStart": "",
+        "DateEnd": "",
+        "Status": ""
     }
   }
 

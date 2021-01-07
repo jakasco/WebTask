@@ -56,10 +56,10 @@ render()
         position: "fixed",
         bottom: "0"
       };
-      
+
     return (
         <div style={chatStyle}>
-<h1>state: {this.state.file.description}</h1>
+<h1>Reply: {this.state.file.description}</h1>
 <ValidatorForm onSubmit={this.handleFileSubmit}
                          onError={errors => console.log(errors)}
                          instantValidate={false}>
