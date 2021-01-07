@@ -14,6 +14,24 @@ class Chat extends Component {
       loading: false,
 };
 
+
+handleInputChange = (evt) => {
+
+    const target = evt.target;
+    const value = target.value;
+    const name = target.name;
+
+    console.log(value, name);
+
+    this.setState((prevState) => ({
+      file: {
+        ...prevState.file,
+        [name]: value,
+
+      },
+    }));
+  };
+
 handleFileSubmit = (evt) => {
     console.log(evt);
    /* this.setState({loading: true});
@@ -32,9 +50,16 @@ handleFileSubmit = (evt) => {
 
 render()
 {
+    const chatStyle = {
+        width: "70%",
+        backgroundColor: "#cacaca",
+        position: "fixed",
+        bottom: "0"
+      };
+      
     return (
-        <div>
-
+        <div style={chatStyle}>
+<h1>state: {this.state.file.description}</h1>
 <ValidatorForm onSubmit={this.handleFileSubmit}
                          onError={errors => console.log(errors)}
                          instantValidate={false}>
