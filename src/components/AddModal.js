@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const AddModal = () => {
 
-  const [dynamicElems, setDynamicElems] = useState([]);
+const [dynamicElems, setDynamicElems] = useState([]);
 
  const myRef = React.createRef();
 
@@ -12,14 +12,6 @@ const AddModal = () => {
     float: "left",
     width: "70%",
     backgroundColor: "rgb(95 95 95)",
-    zIndex: 1,
-  };
-
-  const taskWindowStyle2 = {
-    height: "70vh",
-    float: "left",
-    width: "70%",
-    backgroundColor: "yellow",
     zIndex: 1,
   };
 
@@ -37,8 +29,11 @@ const AddModal = () => {
 
 
   const addElement = (event) => {
+
     console.log("asd ",event);
+
     taskWindowToUnclickable();
+
     let coords = {
         x: event.screenX,
         y: event.screenY,
@@ -59,11 +54,7 @@ const AddModal = () => {
 
   const node = myRef.current;
 
-
       console.log("coords: ",coords);
-
-    // Creates the dynamic paragraph
- //   const newDynamicElem = <p className={"asd"}>This is paragraph</p>;
 
     const newDynamicModal = <div style={modalStyle2} ref={myRef}>
         <button>Create task</button>
@@ -86,4 +77,5 @@ const AddModal = () => {
     </div>
   );
 };
+
 export default AddModal;
