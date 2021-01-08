@@ -15,13 +15,20 @@ componentDidMount() {
     console.log("props: ",this.props);
 }
 
+
 render()
 {
+    const buttonStyle = {
+        fontSize: "18px",
+        color: "white",
+        backgroundColor: "black",
+        marginTop: "20px"
+    }
     return (
        <div style={{backgroundColor:"grey"}}>
         <Link to="/">
-            <button>
-         Back to list of jobs
+            <button style={buttonStyle}>
+                Back to list of jobs
             </button>
             </Link>
       <h1>Job: {this.state.jobName}</h1>

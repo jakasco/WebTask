@@ -13,6 +13,7 @@ const [dynamicElems, setDynamicElems] = useState([]);
     width: "70%",
     backgroundColor: "rgb(95 95 95)",
     zIndex: 1,
+    overFlow: "hidden",
   };
 
   const newTaskButton = () => {
@@ -66,15 +67,18 @@ const [dynamicElems, setDynamicElems] = useState([]);
   };
 
  const newTaskButtonStyle = {
-    marginTop: "3%",
-    position: "absolute"
+    marginTop: "0",
+    marginLeft: "0",
+    fontSize: "18px",
+    color: "white",
+     backgroundColor: "black",
     }
 
   return (
     <div >
         {dynamicElems}
         <button style={newTaskButtonStyle} onClick={newTaskButton}>New Task</button>
-      <div onClick={(event) => addElement(event)}  
+         <div onClick={(event) => addElement(event)}  
           style={taskWindowStyle} ref={myRef}>
        </div>
     </div>

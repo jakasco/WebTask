@@ -43,7 +43,7 @@ render()
 {
     return (
      <div>
-      <h1>Home: {this.state.jobName}</h1>
+      <h1>Home</h1>
         <div>
              <h1>Jobs:</h1>   
         </div>

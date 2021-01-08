@@ -18,7 +18,7 @@ const addJob = () => {
 const newDynamicModal = 
      <React.Fragment>
            <div style={gridItemStyle}>
-           <Link to="/jobview"><button>
+           <Link to="/jobview"><button style={buttonStyle}>
                     {"Job"+ids}
                 </button>
             </Link>  
@@ -49,7 +49,7 @@ const addJobFromJson = (jsonObj) => {
         <React.Fragment>
    
            <div style={gridItemStyle}>
-           <Link to="/jobview"><button>
+           <Link to="/jobview"><button style={buttonStyle}>
                     {jsonObj.Name}
                 </button>
             </Link>  
@@ -120,14 +120,21 @@ const gridStyle = {
 
         display: "grid",
         gridTemplateColumns: "auto auto auto auto auto auto",
-        backgroundColor: "#2196F3",
+        backgroundColor: "rgb(55 61 66)",
         padding: "10px"
       
 };
 
+const buttonStyle = {
+    fontSize: "18px",
+    color: "white",
+    backgroundColor: "black",
+    marginTop: "20px"
+}
+
 const gridItemStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.8)",
-    border: "1px solid rgba(0, 0, 0, 0.8)",
+    border: "0.5px solid rgba(0, 0, 0, 0.8)",
     padding: "20px",
     fontSize: "30px",
     textAlign: "center"
@@ -140,7 +147,6 @@ useEffect(() => {
 
   return (
     <div >
-        <h2>name. {props.name}</h2>
         <div style={gridStyle}>
             <div style={gridItemStyle}>
                Job Name:
@@ -162,7 +168,7 @@ useEffect(() => {
              </div> 
              {dynamicElems}
         </div>
-        <button onClick={() => addJob()}>New Job</button>
+        <button style={buttonStyle} onClick={() => addJob()}>New Job</button>
     </div>
   );
 };
