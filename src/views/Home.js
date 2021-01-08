@@ -15,8 +15,8 @@ class Home extends Component {
     jobs: {},
 };
 
-
 componentDidMount() {
+    //Alternatively fetch json data here
 /*
     const that = this;
     console.log("props home: ",this.props);
@@ -42,18 +42,15 @@ componentDidMount() {
 render()
 {
     return (
-       <div>
-
+     <div>
       <h1>Home: {this.state.jobName}</h1>
         <div>
-             <h1>Jobs:</h1>
-           
+             <h1>Jobs:</h1>   
         </div>
         <ListOfJobs jobs={this.state.jobs} />
       </div>
   );
 };
 };
-
 
 export default Home;

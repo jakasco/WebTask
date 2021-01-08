@@ -3,10 +3,8 @@ import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {Button} from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-
+//Right widget with info of current job
 class SideBar extends Component {
-
-
 
 render()
 {
@@ -18,10 +16,9 @@ render()
         height: "70vh",
       /*  marginTop: "-10%",*/
       };
+
     return (
         <div style={sideBarStyle}>
-
-            
             <ul>
                 <li>ID: </li>
                 <li>Status: </li>
@@ -31,8 +28,7 @@ render()
             <h2>Photos</h2>
             <hr/>
             <h2>Task list</h2>
-
-          </div>
+        </div>
   );
 };
 };

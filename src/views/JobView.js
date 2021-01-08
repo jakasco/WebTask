@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 class JobView extends Component {
 
   state = {
-    jobName: 'asd',
+    jobName: '',
 };
 
 componentDidMount() {
@@ -18,14 +18,13 @@ componentDidMount() {
 render()
 {
     return (
-       <div>
+       <div style={{backgroundColor:"grey"}}>
         <Link to="/">
             <button>
          Back to list of jobs
             </button>
             </Link>
-      <h1>Job state: {this.state.jobName}</h1>
-        <h2>Job Props {this.props.jobName}!</h2>
+      <h1>Job: {this.state.jobName}</h1>
 
       <TasksWindow />
       <Chat />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-
+//Add modal div with mouse click in tasks window panel
 const AddModal = () => {
 
 const [dynamicElems, setDynamicElems] = useState([]);
@@ -27,10 +27,9 @@ const [dynamicElems, setDynamicElems] = useState([]);
     node.style.pointerEvents = "none";
   }
 
-
   const addElement = (event) => {
 
-    console.log("asd ",event);
+    console.log("Event ",event);
 
     taskWindowToUnclickable();
 
@@ -54,25 +53,29 @@ const [dynamicElems, setDynamicElems] = useState([]);
 
   const node = myRef.current;
 
-      console.log("coords: ",coords);
+  console.log("coords: ",coords);
 
-    const newDynamicModal = <div style={modalStyle2} ref={myRef}>
+    const newDynamicModal = 
+    <div style={modalStyle2} ref={myRef}>
         <button>Create task</button>
         <button>Assign task</button>
         <button>Remove task</button>
     </div>;
 
-    // adds it to the state
     setDynamicElems(() => [...dynamicElems, newDynamicModal]);
   };
+
+ const newTaskButtonStyle = {
+    marginTop: "3%",
+    position: "absolute"
+    }
 
   return (
     <div >
         {dynamicElems}
-        <button onClick={newTaskButton}>New Task</button>
+        <button style={newTaskButtonStyle} onClick={newTaskButton}>New Task</button>
       <div onClick={(event) => addElement(event)}  
           style={taskWindowStyle} ref={myRef}>
-          Click here
        </div>
     </div>
   );

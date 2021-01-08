@@ -15,12 +15,9 @@ handleTaskSubmit = (evt) => {
 render()
 {
     return (
-
         <div> 
-            Task1
-          
-      <AddModal />
-          </div>
+           <AddModal />
+         </div>
   );
 };
 };

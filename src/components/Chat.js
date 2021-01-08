@@ -3,7 +3,7 @@ import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {Button} from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-
+//Whazapp type chat under tasks panel
 class Chat extends Component {
 
   state = {
@@ -34,18 +34,6 @@ handleInputChange = (evt) => {
 
 handleFileSubmit = (evt) => {
     console.log(evt);
-   /* this.setState({loading: true});
-    const fd = new FormData();
-    fd.append('title', "Reply");
-    fd.append('description', this.state.file.description);
-    const options = {
-      method: 'POST',
-      body: fd,
-
-    
-      headers: {
-        'x-access-token': localStorage.getItem('Login-token'),
-      }*/
     };
 
 render()
@@ -76,7 +64,6 @@ render()
 
             <Button variant='contained' color='primary' type='submit'>Reply&nbsp;{this.state.loading && 'Loading...'}</Button>
           </ValidatorForm>
-
           </div>
   );
 };

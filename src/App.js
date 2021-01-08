@@ -11,7 +11,7 @@ import Nav from './components/Nav';
 class App extends Component {
 
   state = {
-    jobName: 'asd2',
+    jobName: '',
   };
 
   render()

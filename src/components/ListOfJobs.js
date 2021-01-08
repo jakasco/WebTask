@@ -6,43 +6,72 @@ import {Button} from '@material-ui/core';
 const ListOfJobs = (props) => {
 
 const [dynamicElems, setDynamicElems] = useState([]);
-const [name, setName] = "";
 
 const myRef = React.createRef();
 
-const addJob = () => {
-//evt.preventDefault();
-//console.log("Name: ",evt.target.value);
-const newDynamicModal = 
-    <div ref={myRef}>
-         <li>
-             <Link to="/jobview"><button>
-                    Job
-                </button>
-            </Link>
-             </li>
-    </div>;
+let ids = 0;
 
+const addJob = () => {
+    
+    ids++;
+
+const newDynamicModal = 
+     <React.Fragment>
+           <div style={gridItemStyle}>
+           <Link to="/jobview"><button>
+                    {"Job"+ids}
+                </button>
+            </Link>  
+           </div>
+           <div style={gridItemStyle}>
+                  {ids}
+           </div>
+           <div style={gridItemStyle}>
+                 {"Point"+ids}
+           </div>
+           <div style={gridItemStyle}>
+                 null
+           </div>
+           <div style={gridItemStyle}>
+                 null
+           </div>
+           <div style={gridItemStyle}>
+                 pending
+           </div>
+    </React.Fragment>
+       ;
     setDynamicElems(() => [...dynamicElems, newDynamicModal]);
 };
 
 const addJobFromJson = (jsonObj) => {
-    console.log("jsonObj: ",jsonObj);
+  
     const newDynamicModal = 
-             <li ref={myRef}>
-                  <Link to="/jobview">
-                     <button>
-                         {jsonObj.Name}
-                      </button>
-                 </Link>
-                ID: {jsonObj.ID}
-                Location: {jsonObj.Location}
-                Date Start: {jsonObj.DateStart}
-                Date End: {jsonObj.DateEnd}
-                Status: {jsonObj.Status}
-             </li>
+        <React.Fragment>
+   
+           <div style={gridItemStyle}>
+           <Link to="/jobview"><button>
+                    {jsonObj.Name}
+                </button>
+            </Link>  
+           </div>
+           <div style={gridItemStyle}>
+                 {jsonObj.ID}
+           </div>
+           <div style={gridItemStyle}>
+                 {jsonObj.Location}
+           </div>
+           <div style={gridItemStyle}>
+                 {jsonObj.DateStart}
+           </div>
+           <div style={gridItemStyle}>
+                 {jsonObj.DateEnd}
+           </div>
+           <div style={gridItemStyle}>
+                 {jsonObj.Status}
+           </div>
+      
+         </React.Fragment>
        ;
-    
         setDynamicElems(() => [...dynamicElems, newDynamicModal]);
     };
 
@@ -70,6 +99,9 @@ const getJobsJson = () => {
       //  if(jobsFetched == false){
         for (let key in myJson) {
             if (myJson.hasOwnProperty(key)) {
+
+              ids++;
+
               console.log(myJson[key].ID);
               console.log(myJson[key].Name);
               console.log(myJson[key].Location);
@@ -84,15 +116,22 @@ const getJobsJson = () => {
       });
 };
 
-const handleInputChange = (evt) => {
+const gridStyle = {
 
-    const target = evt.target;
-    const value = target.value;
-    const name2 = target.name;
+        display: "grid",
+        gridTemplateColumns: "auto auto auto auto auto auto",
+        backgroundColor: "#2196F3",
+        padding: "10px"
+      
+};
 
-    const [name, setName] = name2;
-    console.log(value, name);
-  };
+const gridItemStyle = {
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    border: "1px solid rgba(0, 0, 0, 0.8)",
+    padding: "20px",
+    fontSize: "30px",
+    textAlign: "center"
+}
 
 //Run only once the fetching
 useEffect(() => {
@@ -102,38 +141,28 @@ useEffect(() => {
   return (
     <div >
         <h2>name. {props.name}</h2>
-       <div>Jobs:
-            <ul>
-            {dynamicElems}
-            </ul>
-            <form onSubmit={(event) => addJob(event)}>
-            <label for="fname">New Job:</label><br />
-                <input type="text" id="fname" name="fname" value="John" /><br /> 
-              <input type="submit" value="Create" />
-              <button type="submit">Submit</button>
-            </form> 
-
-            <button onClick={() => addJob()}>New Job</button>
-
-            <ValidatorForm onSubmit={(event) => addJob(event)}
-                         onError={errors => console.log(errors)}
-                         instantValidate={false}>
-            <TextValidator name="description" label="New Job:"
-                           value={name}
-                           onChange={handleInputChange}
-                           validators={['required', 'minStringLength:3']}
-                           errorMessages={[
-                             'this field is required',
-                             'minimum 3 charaters']}
-                           fullWidth
-                           multiline
-                           rows={3}/>
-
-            <Button variant='contained' color='primary' type='submit'>Create&nbsp;</Button>
-          </ValidatorForm>
-          
-
+        <div style={gridStyle}>
+            <div style={gridItemStyle}>
+               Job Name:
+             </div>
+             <div style={gridItemStyle}>
+               ID:
+             </div>
+             <div style={gridItemStyle}>
+               Location:
+             </div>
+             <div style={gridItemStyle}>
+               Date Start:
+             </div>
+             <div style={gridItemStyle}>
+               Date End:
+             </div>
+             <div style={gridItemStyle}>
+               Status:
+             </div> 
+             {dynamicElems}
         </div>
+        <button onClick={() => addJob()}>New Job</button>
     </div>
   );
 };
